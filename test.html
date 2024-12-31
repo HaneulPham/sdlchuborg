@@ -3,76 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System requirements</title>
-    <link rel="stylesheet" href="styles/system-requirements.css">
+    <title>Assistant Responses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .responses {
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .response {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .response:last-child {
+            border-bottom: none;
+        }
+        .assistant {
+            text-align: left;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="#">Home</a>
-        <div class="dropdown">
-            <a href="#" class="dropbtn">About &#x25BC;</a>
-            <div class="dropdown-content">
-                <a href="#">About Selenium</a>
-                <a href="#">Structure and Governance</a>
-                <a href="#">Events</a>
-                <a href="#">Ecosystem</a>
-                <a href="#">History</a>
-                <a href="#">Get Involved</a>
-                <a href="#">Sponsors</a>
-                <a href="#">Sponsor Us</a>
-            </div>
-        </div>
-        <a href="#">Downloads</a>
-        <a href="#">Documentation</a>
-        <a href="#">Projects</a>
-        <a href="#">Support</a>
-        <a href="#">Blog</a>
+    <header>
+        <h1>Assistant Responses</h1>
+    </header>
+    <div class="responses" id="responses">
+        <!-- Responses will be dynamically inserted here -->
     </div>
+    <script>
+        const responses = [
+            "Hello! I'm doing great, thank you. How about you? 😊",
+            "The warning indicates that the `bundletool.jar` file, which is required for handling Android App bundles, is missing or not accessible in the directories listed in your `PATH`. Here's how you can resolve it:...",
+            "You're correct! Starting with **Appium v2**, `appium-doctor` is no longer bundled with Appium. Instead, you need to install it separately. Here's how to resolve the issue:...",
+            "The `/path/to/bundletool.jar` is a placeholder for the actual location where you save the `bundletool.jar` file on your computer. Here's an example of how to set it up:...",
+            "The \"Permission denied\" error occurs because `/usr/local/bin` is a system directory, and it requires elevated permissions (superuser privileges) to move files into it. Here’s how to resolve the issue:...",
+            "The error message indicates that you didn't specify a command for `bundletool.jar`. To check its version, you need to explicitly use the `version` command. Here's how you can do it:...",
+            "The issue likely arises because `appium-doctor` or Appium doesn't recognize `bundletool.jar` in your `PATH` even though it is technically there. To fix this, follow these steps:..."
+        ];
 
-    <!-- Header Banner -->
-    <div class="header-banner">
-        Selenium Conf 2025 Call for Proposals is now open! Submissions are being accepted. <a href="#" style="color: yellow; text-decoration: underline;">Learn more & submit!</a>
-    </div>
+        const responsesDiv = document.getElementById("responses");
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h3>Quickstart</h3>
-        <a href="#">Quickstart Intro</a>
-        <a href="#">System Requirements</a>
-        <a href="#">Install Appium</a>
-        <a href="#">Install the UiAutomator2 Driver</a>
-        <h3>Write a Test</h3>
-        <a href="#">Write a Test (JS)</a>
-        <a href="#">Write a Test (Python)</a>
-        <a href="#">Write a Test (Java)</a>
-        <a href="#">Write a Test (Ruby)</a>
-        <a href="#">Write a Test (.NET)</a>
-        <a href="#">Next Steps</a>
-    </div>
-
-    <!-- Main Content Section -->
-    <div class="main-content">
-        <div class="content">
-            <h1>System Requirements</h1>
-            <p>The basic requirements for the Appium server are:</p>
-            <ul>
-                <li>A macOS, Linux, or Windows operating system</li>
-                <li>Node.js version in the SemVer range ^14.17.0 || ^16.13.0 || >=18.0.0
-                    <ul>
-                        <li>LTS is recommended</li>
-                    </ul>
-                </li>
-                <li>npm version >=8 (npm is usually bundled with Node.js, but can be upgraded independently)</li>
-            </ul>
-            <p>By itself, Appium is relatively lightweight and doesn't have significant disk space or RAM requirements. It can even be run in resource-constrained environments like Raspberry Pi, so long as Node.js is available.</p>
-
-            <h2>Driver Requirements</h2>
-            <p>Drivers for automating specific platforms will likely have other requirements. Refer to the documentation of the Appium driver(s) for that platform for additional dependencies. It is almost universally the case that Appium drivers for a given platform will require the developer toolchain and SDKs for that platform to be installed.</p>
-            <p>In order to assist with driver requirements, each (official) driver comes with the Appium Doctor tool, which allows to verify if all requirements have been set up. Learn more about how to use this tool in the <a href="#">Command-Line Usage documentation</a>.</p>
-        </div>
-    </div>
-
+        responses.forEach((response) => {
+            const responseDiv = document.createElement("div");
+            responseDiv.className = "response assistant";
+            responseDiv.textContent = response;
+            responsesDiv.appendChild(responseDiv);
+        });
+    </script>
 </body>
 </html>
