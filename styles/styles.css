@@ -1,30 +1,473 @@
+/* =========================================================
+   BASIC RESETS / GLOBAL
+   ========================================================= */
+
+/* 
+  Universal selector to remove default margins/padding, 
+  and set box-sizing to border-box so width includes padding/border. 
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+  Main body defaults: 
+  - Modern, sans-serif font 
+  - White background 
+  - Normal text color 
+  - Comfortable line-height 
+*/
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.5;
 }
 
-header, nav, footer {
-  background-color: blue;
-  color: white;
-  padding: 1em;
-  text-align: center;
-}
+/* =========================================================
+   NAVBAR (TOP, PURPLE)
+   ========================================================= */
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+/*
+  The .navbar is a flex container that horizontally 
+  arranges left content (logo + nav links) and right content (search + GitHub info).
+*/
+.navbar {
   display: flex;
-  justify-content: center;
-  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #673ab7; /* Purple tone */
+  color: #fff;
+  padding: 0 16px;
+  height: 56px;
 }
 
-nav ul li a {
-  color: white;
+/* 
+  .nav-left wraps the brand name/version + top nav links in one row.
+*/
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* 
+  .brand wraps the project name and version number.
+*/
+.brand {
+  display: flex;
+  align-items: baseline;
+  margin-right: 24px;
+}
+
+/* 
+  The main "Appium XCUITest Driver" name in the navbar.
+*/
+.appium-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* 
+  The version text "7.35 ▼".
+*/
+.version {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* 
+  The top-links container for main nav items: 
+  "Welcome, Overview, Installation, etc."
+*/
+.top-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-right: 16px;
+  opacity: 0.9;
+}
+.top-links a:hover {
+  opacity: 1;
+}
+
+/* 
+  The currently active nav link can have a different style 
+  (underline, bold, etc.).
+*/
+.active-link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* 
+  .nav-right container for search bar + GitHub info + hamburger button.
+*/
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 
+  The search box for doc site searching.
+*/
+.search-container input[type="search"] {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 
+  .repo-info: placeholder text for "stars/forks" link.
+*/
+.repo-info a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+.repo-info a:hover {
+  opacity: 1;
+}
+
+/* 
+  The hamburger button for toggling the left sidebar 
+  on mobile screens. Hidden by default, displayed in a media query.
+*/
+#toggle-sidebar-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* =========================================================
+   WRAPPER (SIDEBARS + MAIN CONTENT)
+   ========================================================= */
+
+/* 
+  .doc-wrapper is a grid container with 3 columns:
+  - Left sidebar (220px)
+  - Main content (fluid)
+  - Right sidebar (240px)
+*/
+.doc-wrapper {
+  display: grid;
+  grid-template-columns: 220px 1fr 240px;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* =========================================================
+   LEFT SIDEBAR
+   ========================================================= */
+
+/* 
+  The left sidebar area: light gray background, subtle border.
+*/
+.left-sidebar {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px;
+  height: fit-content;
+}
+.left-sidebar h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 12px;
+}
+.left-sidebar ul {
+  list-style: none;
+}
+.left-sidebar li {
+  margin-bottom: 8px;
+}
+.left-sidebar a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #673ab7;
+}
+
+/* 
+  .current-page indicates the active doc in the sidebar.
+*/
+.current-page {
+  font-weight: 600;
+  color: #333;
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+/* 
+  The central area for doc text, headings, code samples, etc.
+*/
+.doc-content {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 24px;
+}
+
+/* 
+  Main heading in doc content: "System Requirements" (h1).
+*/
+.doc-content h1 {
+  font-size: 1.3rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+/* 
+  Generic styling for h2 headings in doc content 
+  (e.g. "Main Dependencies", "Optional Dependencies").
+*/
+.doc-content h2 {
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* 
+  Paragraph text style.
+*/
+.doc-content p {
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* 
+  Unordered lists in the doc content get left padding for bullets.
+*/
+.doc-content ul {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+.doc-content li {
+  margin-bottom: 8px;
+}
+
+/* 
+  Hyperlinks in the doc content typically appear in purple (#673ab7).
+*/
+.doc-content a {
+  color: #673ab7;
   text-decoration: none;
 }
-
-main {
-  padding: 2em;
+.doc-content a:hover {
+  text-decoration: underline;
 }
+
+/* 
+  A highlight box for important notes: uses a left border, light-blue background.
+*/
+.note-box {
+  border-left: 4px solid #2196f3;
+  background-color: #e3f2fd;
+  padding: 12px;
+  border-radius: 4px;
+  margin: 16px 0;
+  font-size: 0.95rem;
+}
+
+/* 
+  Code blocks (pre/code): light gray background, some padding, 
+  and slight radius for a neat look.
+*/
+pre {
+  background-color: #f4f4f4;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* =========================================================
+   RIGHT SIDEBAR
+   ========================================================= */
+
+/*
+  The right sidebar (table of contents).
+*/
+.right-sidebar {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px;
+}
+.right-sidebar h3 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #666;
+}
+.right-sidebar ul {
+  list-style: none;
+}
+.right-sidebar li {
+  margin-bottom: 8px;
+}
+.right-sidebar a {
+  color: #673ab7;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.right-sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.doc-footer {
+  border-top: 1px solid #ddd;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* =========================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================= */
+
+/*
+  At max-width: 992px, we hide the right sidebar and shrink columns.
+*/
+@media (max-width: 992px) {
+  .doc-wrapper {
+    grid-template-columns: 180px 1fr;
+  }
+  .right-sidebar {
+    display: none;
+  }
+}
+
+/*
+  At max-width: 700px, we go single-column. 
+  The left sidebar is toggled by the hamburger button.
+*/
+@media (max-width: 700px) {
+  #toggle-sidebar-btn {
+    display: block; /* Show hamburger button on small screens */
+  }
+  .doc-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .left-sidebar {
+    display: none; /* hidden by default, toggled via JS */
+  }
+}
+
+/* Basic styling reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.5;
+  padding: 30px;
+}
+
+/* Section wrapper for the Gradle cleaning instructions */
+.clean-gradle-section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* (Optional) Tag styling */
+.optional-tag {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #555;
+}
+
+/* Headings and list styling */
+.clean-gradle-section h2 {
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+  color: #444;
+}
+.clean-gradle-section ol {
+  list-style: decimal;
+  margin-left: 20px;
+}
+.clean-gradle-section li {
+  margin-bottom: 20px;
+}
+
+/* Code block container */
+.code-block {
+  position: relative; /* so the button can be positioned absolutely if desired */
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* Actual code text style */
+.code-block pre {
+  margin: 0;
+  overflow-x: auto;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+/* Copy button styling */
+.copy-btn {
+  cursor: pointer;
+  background-color: #e2e8f0;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  float: right;
+  margin-top: -2.5em;  /* moves the button up to top-right corner of the code block */
+  margin-right: 6px;
+}
+.copy-btn:hover {
+  background-color: #d2dae2;
+}
+
+/* 
+   If you'd rather place the button in the top-right corner absolutely, 
+   remove the float and margin, then uncomment these lines:
+   position: absolute;
+   top: 8px;
+   right: 8px;
+*/
+
+/* A little extra spacing if you'd like: 
+.clean-gradle-section li + li {
+  margin-top: 15px;
+}
+*/
+
