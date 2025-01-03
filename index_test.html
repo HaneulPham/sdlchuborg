@@ -1,26 +1,118 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title>this is testing</title>
-    <link rel="stylesheet" href="index_test.css"/>
+  <meta charset="UTF-8" />
+  <title>Appium XCUITest Driver - System Requirements</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="components/components.css"/>
 </head>
 <body>
-    <!-- check white space -->
-     <p id="noWhitespace">Dogs are silly. "dsh &lt;p&gt; &quot; and &amp;</p>
-     <p id="whitespace" style="color: blue;">Dogs 
-        are hang
-        silly.</p>
-        <ul>
-            <li>li tag 1</li>
-            <li>li tag 2</li>
-            <li>li tag 3</li>
-            <li>li tag 4</li>
-            <li>li tag 5</li>
-        </ul>
-    <p>this is p tag</p>
-    <div><img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png" alt="firefox-icon" width="150" weight="300"/></div>
-    <img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png" alt="firefox-icon" width="50" weight="50"/>
-    <p>This is url <a href="https://www.google.com">here</a></p>
+  <header id="header"></header>
+  <div class="doc-wrapper">
+    <aside class="left-sidebar" id="sidebar">
+      <h2>Installation</h2>
+      <ul>
+        <li><a href="#">Installation</a></li>
+        <li><a href="#" class="current-page">System Requirements</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-content">
+      <h1>System Requirements</h1>
+      <h2 id="main-dependencies">Main Dependencies</h2>
+      <p>
+        Like all Appium drivers, the XCUITest driver requires Appium to be installed. 
+        Refer to the <a href="#">Appium documentation</a> for its requirements and prerequisites.
+      </p>
+      <div class="note-box">
+        <strong>Note:</strong> Since version 4.0.0, the XCUITest driver has dropped 
+        support for Appium 1, and is only compatible with Appium 2.
+      </div>
+      <p>
+        In addition to Appium system requirements, the XCUITest driver expects 
+        the following prerequisites:
+      </p>
+      <ul>
+        <li><strong>Only macOS</strong> is supported as the host platform</li>
+        <li><strong>Xcode and Xcode Developer Tools</strong> must be installed
+          <ul>
+            <li>The Appium team often needs time to add support for the latest 
+                Xcode/iOS versions, including beta versions 
+                (<a href="#">Xcode/iOS version support</a>)</li>
+          </ul>
+        </li>
+        <li>
+          If automating real devices, additional manual configuration is required. 
+          Check the <a href="#">Real Device Configuration</a> docs for more details.
+        </li>
+        <li>
+          Webviews must be debuggable in order to test them. If not, the driver 
+          will not be able to identify them (see 
+          <a href="#">Safari remote debugger</a>).
+        </li>
+      </ul>
+
+      <h2 id="optional-dependencies">Optional Dependencies</h2>
+      <p>
+        <code>xcpretty</code> can be used to make Xcode output easier to read. It can be 
+        installed by running:
+      </p>
+      <pre><code class="language-bash">
+brew install xcpretty
+      </code></pre>
+
+      <h2 id="validate-dependencies-using-doctor">Validate Dependencies Using Doctor</h2>
+      <p>
+        You can ensure your environment is ready by using <code>appium-doctor</code>:
+      </p>
+      <pre><code class="language-bash">
+npm install -g appium-doctor
+appium-doctor --ios
+      </code></pre>
+
+      <h2 id="xcode-ios-version-support">Xcode/iOS Version Support</h2>
+      <p>
+        The XCUITest driver supports Xcode versions starting from 8.x, but you are 
+        encouraged to use the latest stable version. Ensure your iOS device version 
+        is compatible if testing on real devices, and that you have the necessary 
+        provisioning profiles/certificates.
+      </p>
+      <!-- <section class="clean-gradle-section"> -->
+        <h2>6. Clean Gradle Cache <span class="optional-tag">(Optional)</span></h2>
+        <ol>
+          <li>
+            Gradle cache is stored at:
+            <div class="code-block">
+              <!-- 
+                Assign an ID to the code block so we know which element to copy from
+              -->
+              <pre><code class="language-bash" id="gradle-cache-location">~/.gradle</code></pre>
+              <button class="copy-btn" data-target="gradle-cache-location">Copy code</button>
+            </div>
+          </li>
+    
+          <li>
+            To remove it, run:
+            <div class="code-block">
+              <pre><code class="language-bash" id="remove-gradle-command">rm -rf ~/.gradle</code></pre>
+              <button class="copy-btn" data-target="remove-gradle-command">Copy code</button>
+            </div>
+          </li>
+        </ol>
+      <!-- </section> -->
+    </main>
+
+    <aside class="right-sidebar">
+      <h3>Table of contents</h3>
+      <ul>
+        <li><a href="#main-dependencies">Main Dependencies</a></li>
+        <li><a href="#optional-dependencies">Optional Dependencies</a></li>
+        <li><a href="#validate-dependencies-using-doctor">Validate Dependencies Using Doctor</a></li>
+        <li><a href="#xcode-ios-version-support">Xcode/iOS Version Support</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
