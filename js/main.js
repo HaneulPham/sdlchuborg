@@ -1,3 +1,4 @@
+
 // 1) Toggle the LEFT SIDEBAR on smaller screens
 
 // Grab the button (#toggle-sidebar-btn) and the sidebar (#sidebar) from the DOM.
@@ -64,4 +65,9 @@ copyButtons.forEach(button => {
         });
     }
   });
+});
+fetch('components/header.html')
+.then(r => r.text)
+.then(html =>{
+  document.getElementById('header').innerHTML = html;
 });
