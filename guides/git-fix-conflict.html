@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Diverged Branches Resolution Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 3px solid #4CAF50;
+            overflow-x: auto;
+        }
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Git Diverged Branches Resolution Guide</h1>
+    <p>The message indicates that your local branch and the remote branch have diverged, meaning there are changes in both branches that Git doesn't know how to reconcile automatically. You need to decide how to integrate the changes.</p>
+
+    <h2>Option 1: <strong>Merge (default behavior)</strong></h2>
+    <p>If you want to merge the remote changes into your local branch:</p>
+    <ol>
+        <li>Run the following command to perform a <code>git pull</code> with a merge:</li>
+        <pre>git config pull.rebase false
+git pull origin main</pre>
+        <li>This will fetch and merge the remote changes into your local branch, creating a merge commit if there are conflicts.</li>
+        <li>If conflicts occur, resolve them manually, then proceed with:</li>
+        <pre>git add &lt;resolved-files&gt;
+git commit
+git push origin main</pre>
+    </ol>
+
+    <h2>Option 2: <strong>Rebase (preferred for a cleaner history)</strong></h2>
+    <p>If you want your local changes to be replayed on top of the remote changes:</p>
+    <ol>
+        <li>Set the rebase option for pulling:</li>
+        <pre>git config pull.rebase true
+git pull origin main</pre>
+        <li>Resolve any conflicts that occur during the rebase:
+            <ul>
+                <li>Open conflicting files and resolve conflicts manually.</li>
+                <li>Use:</li>
+                <pre>git rebase --continue</pre>
+                <li>Repeat until the rebase completes.</li>
+            </ul>
+        </li>
+        <li>Push the changes to the remote branch:</li>
+        <pre>git push origin main</pre>
+    </ol>
+
+    <h2>Option 3: <strong>Fast-forward Only</strong></h2>
+    <p>If you want to ensure that your branch is fast-forwarded (no new commits on the local branch):</p>
+    <ol>
+        <li>Run:</li>
+        <pre>git config pull.ff only
+git pull origin main</pre>
+        <li>If the branches cannot be fast-forwarded, Git will fail, and you can inspect the differences to decide your next steps.</li>
+    </ol>
+
+    <h2>Permanent Configuration</h2>
+    <p>You can set a global default behavior for future pulls using:</p>
+    <ul>
+        <li><strong>Merge as default:</strong></li>
+        <pre>git config --global pull.rebase false</pre>
+        <li><strong>Rebase as default:</strong></li>
+        <pre>git config --global pull.rebase true</pre>
+        <li><strong>Fast-forward only:</strong></li>
+        <pre>git config --global pull.ff only</pre>
+    </ul>
+
+    <h2>Summary of Commands</h2>
+    <p>For this situation, you can choose the following approach:</p>
+    <ul>
+        <li><strong>Merge (default behavior):</strong></li>
+        <pre>git config pull.rebase false
+git pull origin main</pre>
+        <li><strong>Rebase (cleaner history):</strong></li>
+        <pre>git config pull.rebase true
+git pull origin main</pre>
+    </ul>
+
+    <p>Let me know if you encounter conflicts or need help choosing an approach!</p>
+</body>
+</html>

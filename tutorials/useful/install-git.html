@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Setup and Basic Commands Guide for Mac</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        h2 {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Git Setup and Basic Commands Guide for Mac</h1>
+
+    <h2>Step 1: Install Git on Mac</h2>
+    <ol>
+        <li>
+            <strong>Open Terminal</strong>:
+            <p>Press <code>Command</code> + <code>Space</code>, type "Terminal," and press Enter.</p>
+        </li>
+        <li>
+            <strong>Install Git via Homebrew (Recommended)</strong>:
+            <ol>
+                <li><strong>First</strong>, install <a href="https://brew.sh/" target="_blank">Homebrew</a> if you haven't already.
+                    <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+                </li>
+                <li><strong>Then</strong>, install Git using Homebrew:
+                    <pre><code>brew install git</code></pre>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <strong>Check if Git is Installed</strong>:
+            <pre><code>git --version</code></pre>
+            <p>You should see the installed version number, which means Git is successfully installed.</p>
+        </li>
+    </ol>
+
+    <h2>Step 2: Configure Git</h2>
+    <ol>
+        <li><strong>Set Your Username</strong>:
+            <pre><code>git config --global user.name "Your Name"</code></pre>
+        </li>
+        <li><strong>Set Your Email</strong>:
+            <pre><code>git config --global user.email "your.email@example.com"</code></pre>
+        </li>
+    </ol>
+
+    <h2>Step 3: Create a Repository</h2>
+    <ol>
+        <li><strong>Initialize a New Git Repository</strong>:
+            <pre><code>mkdir my-git-project<br>cd my-git-project<br>git init</code></pre>
+            <p>This command creates a new Git repository.</p>
+        </li>
+        <li><strong>Clone an Existing Repository</strong> (if you have one to work on):
+            <pre><code>git clone [repository URL]</code></pre>
+            <p>Replace <code>[repository URL]</code> with the actual URL of the repository you want to work on.</p>
+        </li>
+    </ol>
+
+    <h2>Step 4: Basic Git Commands</h2>
+    <h3>1. Commit Changes</h3>
+    <p>Create or modify a file:</p>
+    <pre><code>echo "Hello, Git!" > hello.txt</code></pre>
+    <p><strong>Add</strong> the file to staging:</p>
+    <pre><code>git add hello.txt</code></pre>
+    <p><strong>Commit</strong> the changes:</p>
+    <pre><code>git commit -m "Add hello.txt file"</code></pre>
+
+    <h3>2. Push Changes</h3>
+    <p>If you have a remote repository (e.g., on GitHub), you can push your changes.</p>
+    <p><strong>First, add the remote URL</strong>:</p>
+    <pre><code>git remote add origin [repository URL]</code></pre>
+    <p>Push your changes to the remote repository:</p>
+    <pre><code>git push origin main</code></pre>
+    <p>Replace <code>main</code> with your branch name if it’s different.</p>
+
+    <h3>3. Pull Changes</h3>
+    <p>To pull the latest changes from the remote repository:</p>
+    <pre><code>git pull origin main</code></pre>
+
+    <h3>4. Merge Changes</h3>
+    <p><strong>Switch to your main branch</strong> (or another branch):</p>
+    <pre><code>git checkout main</code></pre>
+    <p><strong>Merge</strong> another branch into your main branch:</p>
+    <pre><code>git merge [branch-name]</code></pre>
+    <p>Replace <code>[branch-name]</code> with the name of the branch you want to merge.</p>
+
+    <h3>5. Rebase</h3>
+    <p><strong>Switch to the branch</strong> you want to rebase:</p>
+    <pre><code>git checkout [branch-name]</code></pre>
+    <p><strong>Rebase</strong> onto another branch:</p>
+    <pre><code>git rebase main</code></pre>
+    <p>This moves your branch on top of the latest changes from <code>main</code>.</p>
+
+    <h3>6. Push After Rebase</h3>
+    <p>After rebasing, you need to force push to the remote branch:</p>
+    <pre><code>git push -f origin [branch-name]</code></pre>
+
+    <h2>Step 5: Practice Scenario</h2>
+    <p>To practice, you could follow this simple scenario:</p>
+    <ol>
+        <li>Create a new file, add content, and commit it.</li>
+        <li>Make a change, commit again.</li>
+        <li>Create a new branch (<code>git checkout -b new-feature</code>) and make changes there.</li>
+        <li>Merge the <code>new-feature</code> branch back into <code>main</code> (<code>git checkout main</code> then <code>git merge new-feature</code>).</li>
+        <li>Try rebasing (<code>git rebase main</code>) with another branch.</li>
+    </ol>
+
+    <h2>Let Me Know if You Need More Details</h2>
+    <p>We’ve covered the initial setup and basic commands to get you started with Git. Practice these steps, and let me know if you need further help or if you want to dive deeper into specific Git workflows!</p>
+</body>
+</html>

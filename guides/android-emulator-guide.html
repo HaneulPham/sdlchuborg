@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide: Start Android Emulator</title>
+    <link rel="stylesheet" href="android-emulator-guide.css" />
+</head>
+
+<body>
+    <h1>Guide: How to Start an Android Emulator from Terminal</h1>
+
+    <p>This guide walks you through the steps to start an Android Emulator using the terminal. Follow the instructions
+        carefully to set up and run your emulator.</p>
+
+    <div class="steps">
+        <div class="step">
+            <h2>Step 1: Ensure Android SDK Is Installed</h2>
+            <p>Before starting, make sure you have Android Studio installed and the Android SDK is set up properly.</p>
+            <ul>
+                <li>Open <strong>Android Studio</strong>.</li>
+                <li>Go to <code>File > Settings > Appearance & Behavior > System Settings > Android SDK</code>.</li>
+                <li>Ensure <strong>Android SDK Tools</strong> and <strong>Android Emulator</strong> are installed.</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Step 2: Add SDK Tools to PATH</h2>
+            <p>To use the <code>emulator</code> command, you need to add SDK tools to your system's PATH.</p>
+            <pre>
+export PATH=$PATH:/path/to/Android/sdk/platform-tools:/path/to/Android/sdk/emulator
+      </pre>
+            <p class="note">Replace <code>/path/to/Android/sdk</code> with the actual location of your SDK.</p>
+        </div>
+
+        <div class="step">
+            <h2>Step 3: List Available Emulators</h2>
+            <p>Run the following command to see a list of available emulators:</p>
+            <pre>
+emulator -list-avds
+      </pre>
+            <p>This will display emulator names, e.g., <code>Pixel_5_API_30</code>.</p>
+        </div>
+
+        <div class="step">
+            <h2>Step 4: Start an Emulator</h2>
+            <p>Use the following command to start an emulator:</p>
+            <pre>
+emulator -avd <em>AVD_NAME</em>
+      </pre>
+            <p>Example:</p>
+            <pre>
+emulator -avd Pixel_5_API_30
+      </pre>
+        </div>
+
+        <div class="step">
+            <h2>Step 5: Optional Parameters</h2>
+            <p>Customize the emulator with optional parameters:</p>
+            <ul>
+                <li><strong>Scale:</strong> <code>-scale 0.5</code></li>
+                <li><strong>RAM:</strong> <code>-memory 2048</code></li>
+            </ul>
+            <p>Example:</p>
+            <pre>
+emulator -avd Pixel_5_API_30 -scale 0.5 -memory 2048
+      </pre>
+        </div>
+
+        <div class="step">
+            <h2>Troubleshooting</h2>
+            <p>If you encounter issues, try the following:</p>
+            <ul>
+                <li><strong>Kill stuck emulator processes:</strong>
+                    <pre>
+adb kill-server
+          </pre>
+                </li>
+                <li><strong>Clear Emulator Cache:</strong> Navigate to <code>.android/avd</code> in your home directory
+                    and delete temporary files.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p class="note">Note: Ensure that your system meets the requirements for running Android emulators.</p>
+    </footer>
+</body>
+
+</html>

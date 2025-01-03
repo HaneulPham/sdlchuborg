@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,32 +40,26 @@
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>Assistant Responses</h1>
-    </header>
-    <div class="responses" id="responses">
-        <!-- Responses will be dynamically inserted here -->
-    </div>
-    <script>
-        const responses = [
-            "Hello! I'm doing great, thank you. How about you? 😊",
-            "The warning indicates that the `bundletool.jar` file, which is required for handling Android App bundles, is missing or not accessible in the directories listed in your `PATH`. Here's how you can resolve it:...",
-            "You're correct! Starting with **Appium v2**, `appium-doctor` is no longer bundled with Appium. Instead, you need to install it separately. Here's how to resolve the issue:...",
-            "The `/path/to/bundletool.jar` is a placeholder for the actual location where you save the `bundletool.jar` file on your computer. Here's an example of how to set it up:...",
-            "The \"Permission denied\" error occurs because `/usr/local/bin` is a system directory, and it requires elevated permissions (superuser privileges) to move files into it. Here’s how to resolve the issue:...",
-            "The error message indicates that you didn't specify a command for `bundletool.jar`. To check its version, you need to explicitly use the `version` command. Here's how you can do it:...",
-            "The issue likely arises because `appium-doctor` or Appium doesn't recognize `bundletool.jar` in your `PATH` even though it is technically there. To fix this, follow these steps:..."
-        ];
+    <h1>H1 title</h1>
+    <h2>H2 title</h2>
+    <h3>H3 title</h3>
+    <h4>H4 title</h4>
+    <p>My cat is <strong>very grumpy</strong></p>
+    <img class="fit-picture" src="images/grapefruit-slice-332-332.jpg" alt="My test image1" />
+    <img src="assets/images/firefox-icon.png" alt="My test image" />
 
-        const responsesDiv = document.getElementById("responses");
-
-        responses.forEach((response) => {
-            const responseDiv = document.createElement("div");
-            responseDiv.className = "response assistant";
-            responseDiv.textContent = response;
-            responsesDiv.appendChild(responseDiv);
-        });
-    </script>
+    <div>This is DIV tag</div>
+    <ul>
+        This is UL tag
+    </ul>
+    <ul>
+        <li>this is li</li>
+    </ul>
+    <ul>this is UL 2</ul>
+    <br>
+    <a>this is a tag</a>
+    <a href="Mozilla Manifesto">this is tag a2</a>
 </body>
 </html>

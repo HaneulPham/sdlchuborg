@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Start Android Emulator from Terminal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+        code {
+            background: #f4f4f9;
+            color: #d63384;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Start Android Emulator from Terminal</h1>
+    </header>
+    <main>
+        <h2>Follow These Steps:</h2>
+        <ul>
+            <li>
+                <strong>Step 1: Ensure Android SDK is Installed</strong>
+                <p>Install Android Studio or ensure the standalone Android SDK is installed. Add the SDK tools to your system's PATH:</p>
+                <code>export PATH=$PATH:/path-to-android-sdk/tools:/path-to-android-sdk/platform-tools</code>
+            </li>
+            <li>
+                <strong>Step 2: List Available Emulators</strong>
+                <p>Use the following command to list available Android Virtual Devices (AVDs):</p>
+                <code>emulator -list-avds</code>
+            </li>
+            <li>
+                <strong>Step 3: Start the Emulator</strong>
+                <p>Start the emulator using the name of your AVD:</p>
+                <code>emulator @&lt;AVD_NAME&gt;</code>
+                <p>Replace <code>&lt;AVD_NAME&gt;</code> with your AVD's name, e.g., <code>Pixel_4_API_30</code>.</p>
+            </li>
+            <li>
+                <strong>Step 4: Optional Customizations</strong>
+                <p>Use additional options to customize the emulator startup:</p>
+                <ul>
+                    <li>Start with a cold boot: <code>emulator @&lt;AVD_NAME&gt; -no-snapshot-load</code></li>
+                    <li>Set the scale of the emulator: <code>emulator @&lt;AVD_NAME&gt; -scale 0.5</code></li>
+                </ul>
+            </li>
+            <li>
+                <strong>Step 5: Verify Emulator is Running</strong>
+                <p>Check if the emulator is running using:</p>
+                <code>adb devices</code>
+                <p>You should see a device like <code>emulator-5554</code> in the list.</p>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        &copy; 2024 Android Emulator Guide
+    </footer>
+</body>
+</html>
