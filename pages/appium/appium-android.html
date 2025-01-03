@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../components/components.css"/>
 </head>
 <body>
-  <header id="header"></header>
+  <header id="header-container"></header>
   <div class="doc-wrapper">
     <aside class="left-sidebar" id="sidebar">
       <h2>Installation</h2>
@@ -18,7 +18,7 @@
     </aside>
 
     <main class="doc-content">
-      <h1>System Requirements</h1>
+      <h1>System Requirements android</h1>
       <h2 id="main-dependencies">Main Dependencies</h2>
       <p>
         Like all Appium drivers, the XCUITest driver requires Appium to be installed. 
@@ -112,15 +112,18 @@ appium-doctor --ios
       </ul>
     </aside>
   </div>
-
-  <!-- <script>
+  <!-- Custom JavaScript to load the header and footer -->
+  <script>
     fetch('../../components/header.html')
-.then(r => r.text)
-.then(html =>{
-  document.getElementById('header').innerHTML = html;
-})
-.catch(err => console.error('Error loading header:', err));
-  </script> -->
-  <!-- <script src="../../js/main.js"></script> -->
+  .then((response) => {
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    return response.text();
+  })
+  .then((html) => {
+    document.getElementById('header-container').innerHTML = html;
+  })
+  .catch((error) => console.error('Error loading header:', error));
+
+  </script>
 </body>
 </html>

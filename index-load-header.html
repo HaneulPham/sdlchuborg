@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Detail</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="components/components.css"/>
+  </head>
+  <body>
+    <!-- Placeholder for header -->
+    <div id="header-container"></div>
+
+    <main>
+      <h2>Product Name</h2>
+      <p>This is a product description.</p>
+    </main>
+
+    <!-- Placeholder for footer -->
+    <div id="footer-container"></div>
+
+    <!-- Custom JavaScript to load the header and footer -->
+    <script>
+      // Load the header and footer using jQuery .load()
+      $(document).ready(function () {
+        // Load header.html into the header-container
+        $('#header-container').load('../components/header.html');
+        // Load footer.html into the footer-container
+        $('#footer-container').load('../components/footer.html');
+      });
+    </script>
+  </body>
+</html>

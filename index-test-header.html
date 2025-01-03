@@ -7,9 +7,26 @@
   <link rel="stylesheet" href="components/components.css"/>
 </head>
 <body>
-  <header id="header"></header>
-  <div>load header</div>
+ <!-- Placeholder for header -->
+ <div id="header-container"></div>
+ <main>
+  <h2>Product Name</h2>
+  <p>This is a product description.</p>
+</main>
+
+<!-- Placeholder for footer -->
+<div id="footer-container"></div>
   <script src="js/main.js">
+  </script>
+  <!-- Custom JavaScript to load the header and footer -->
+  <script>
+    // Load the header and footer using jQuery .load()
+    $(document).ready(function () {
+      // Load header.html into the header-container
+      $('#header-container').load('../components/header.html');
+      // Load footer.html into the footer-container
+      $('#footer-container').load('../components/footer.html');
+    });
   </script>
 </body>
 </html>
