@@ -1,140 +1,238 @@
+/* Global Variables */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #333;
+  --hover-color: #007bff;
+}
 
-  header {
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #fff;
-    color: #333;
-    line-height: 1.5;
+body.dark-mode {
+  --bg-color: #333;
+  --text-color: #f8f9fa;
+  --hover-color: #ff9800;
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: var(--hover-color);
+  width: 0;
+  z-index: 1000;
+}
+/* General Header Styles */
+header.top-navigation {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa; /* Light background */
+  border-bottom: 1px solid #ddd; /* Subtle border */
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Navigation */
+.top-navigation-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Main Menu */
+.main-nav .main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-menu .top-level-entry-container {
+  position: relative;
+  margin-right: 20px;
+}
+
+.main-menu .top-level-entry-container:last-child {
+  margin-right: 0;
+}
+
+/* Top-Level Buttons and Links */
+.main-menu .top-level-entry {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.main-menu .top-level-entry:hover {
+  color: #007bff; /* Highlight color */
+}
+
+.main-menu button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.main-menu button:hover {
+  color: #007bff; /* Highlight color */
+}
+
+/* Submenu */
+.main-menu .submenu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  z-index: 1000;
+  border: 1px solid #ddd;
+  width: 200px;
+}
+
+.main-menu .submenu li {
+  margin: 0;
+}
+
+.main-menu .submenu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.main-menu .submenu li a:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+/* Highlight active menu */
+.main-menu .top-level-entry.active, 
+.main-menu .submenu li a.active {
+  color: #007bff;
+  font-weight: bold;
+}
+/* User Profile */
+.user-profile {
+  position: relative;
+}
+
+.user-profile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--bg-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.user-profile-button[aria-expanded="true"] + .user-profile-menu {
+  display: block;
+}
+/* smooth dropdown animation */
+.submenu {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.top-level-entry-container:hover .submenu,
+.main-menu button[aria-expanded="true"] + .submenu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+/* sticky header */
+header.top-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Show Submenu on Hover */
+.main-menu .top-level-entry-container:hover .submenu {
+  display: block;
+}
+
+/* Accessibility Support */
+.main-menu button[aria-expanded="true"] + .submenu {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-navigation-main {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  /* =========================================================
-     NAVBAR (TOP, PURPLE)
-     ========================================================= */
-  
-  /*
-    The .navbar is a flex container that horizontally 
-    arranges left content (logo + nav links) and right content (search + GitHub info).
-  */
-  .navbar-general-component {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #18c4d7; /* Blue tone */
-    color: #fff;
-    padding: 0 16px;
-    height: 56px;
+
+  .main-nav .main-menu {
+    flex-direction: column;
   }
-  
-  /* 
-    .nav-left wraps the brand name/version + top nav links in one row.
-  */
-  .nav-left-general-component {
-    display: flex;
-    align-items: center;
+
+  .main-menu .top-level-entry-container {
+    margin-right: 0;
   }
-  
-  /* 
-    .brand wraps the project name and version number.
-  */
-  .brand-general-component {
-    display: flex;
-    align-items: baseline;
-    margin-right: 24px;
-  }
-  
-  /* 
-    The main "SDLCHUB.ORG" name in the navbar.
-  */
-  .sdlchub-name {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-right: 8px;
-  }
-  
-  /* 
-    The version text "7.35 ▼".
-  */
-  .version {
-    font-size: 0.85rem;
-    opacity: 0.9;
-  }
-  
-  /* 
-    The top-links container for main nav items: 
-    "Welcome, Overview, Installation, etc."
-  */
-  .top-links-general-component a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 0.9rem;
-    margin-right: 16px;
-    opacity: 0.9;
-  }
-  .top-links-general-component a:hover {
-    opacity: 1;
-  }
-  
-  /* 
-    The currently active nav link can have a different style 
-    (underline, bold, etc.).
-  */
-  .active-link {
-    font-weight: 600;
-    text-decoration: underline;
-  }
-  
-  /* 
-    .nav-right container for search bar + GitHub info + hamburger button.
-  */
-  .nav-right-general-component {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  /* 
-    The search box for doc site searching.
-  */
-  .search-container-general-component input[type="search"] {
-    padding: 4px 8px;
-    font-size: 0.9rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* 
-    .repo-info: placeholder text for "stars/forks" link.
-  */
-  .repo-info a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 0.8rem;
-    opacity: 0.9;
-  }
-  .repo-info a:hover {
-    opacity: 1;
-  }
-  
-  /* 
-    The hamburger button for toggling the left sidebar 
-    on mobile screens. Hidden by default, displayed in a media query.
-  */
-  #toggle-sidebar-btn {
-    display: none;
-    background: none;
+
+  .main-menu .submenu {
+    position: static;
+    box-shadow: none;
     border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
   }
-  
-  /* =========================================================
-     FOOTER
-     ========================================================= */
-  
-  .doc-footer {
-    border-top: 1px solid #ddd;
-    text-align: center;
-    padding: 16px;
-    font-size: 0.85rem;
-    color: #777;
+
+  .main-menu .submenu li a {
+    padding: 10px;
   }
+}
+/* the hamburger menu */
+#mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #mobile-menu-toggle {
+    display: block;
+  }
+
+  .main-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .main-menu.open {
+    display: flex;
+  }
+}
+

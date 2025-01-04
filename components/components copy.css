@@ -1,0 +1,140 @@
+
+  header {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* =========================================================
+     NAVBAR (TOP, PURPLE)
+     ========================================================= */
+  
+  /*
+    The .navbar is a flex container that horizontally 
+    arranges left content (logo + nav links) and right content (search + GitHub info).
+  */
+  .navbar-general-component {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #18c4d7; /* Blue tone */
+    color: #fff;
+    padding: 0 16px;
+    height: 56px;
+  }
+  
+  /* 
+    .nav-left wraps the brand name/version + top nav links in one row.
+  */
+  .nav-left-general-component {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* 
+    .brand wraps the project name and version number.
+  */
+  .brand-general-component {
+    display: flex;
+    align-items: baseline;
+    margin-right: 24px;
+  }
+  
+  /* 
+    The main "SDLCHUB.ORG" name in the navbar.
+  */
+  .sdlchub-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  
+  /* 
+    The version text "7.35 ▼".
+  */
+  .version {
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+  
+  /* 
+    The top-links container for main nav items: 
+    "Welcome, Overview, Installation, etc."
+  */
+  .top-links-general-component a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-right: 16px;
+    opacity: 0.9;
+  }
+  .top-links-general-component a:hover {
+    opacity: 1;
+  }
+  
+  /* 
+    The currently active nav link can have a different style 
+    (underline, bold, etc.).
+  */
+  .active-link {
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  /* 
+    .nav-right container for search bar + GitHub info + hamburger button.
+  */
+  .nav-right-general-component {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* 
+    The search box for doc site searching.
+  */
+  .search-container-general-component input[type="search"] {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* 
+    .repo-info: placeholder text for "stars/forks" link.
+  */
+  .repo-info a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+  .repo-info a:hover {
+    opacity: 1;
+  }
+  
+  /* 
+    The hamburger button for toggling the left sidebar 
+    on mobile screens. Hidden by default, displayed in a media query.
+  */
+  #toggle-sidebar-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  
+  .doc-footer {
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.85rem;
+    color: #777;
+  }

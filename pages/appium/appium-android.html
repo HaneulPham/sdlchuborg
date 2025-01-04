@@ -19,6 +19,13 @@
 
     <main class="doc-content">
       <h1>System Requirements android</h1>
+      <!-- <li><a href="#main-dependencies">Install appium android automator2</a></li>
+        <li><a href="#optional-dependencies">Check setup Android SDK</a></li>
+        <li><a href="#validate-dependencies-using-doctor">Check apkanalyzer</a></li>
+        <li><a href="#xcode-ios-version-support">Check emulator</a></li>
+        <li><a href="#optional-dependencies">Check bundletool.jar</a></li>
+        <li><a href="#validate-dependencies-using-doctor">Check ffmpeg</a></li>
+        <li><a href="#xcode-ios-version-support">Check gst-launch-1.0 and/or gst-inspect-1.0</a></li> -->
       <h2 id="main-dependencies">Main Dependencies</h2>
       <p>
         Like all Appium drivers, the XCUITest driver requires Appium to be installed. 
@@ -100,15 +107,24 @@ appium-doctor --ios
           </li>
         </ol>
       <!-- </section> -->
+       <!-- collapse code -->
+       <a id="toggle-btn"><em>Show More</em></a>
+
+       <div id="collapsible-content">
+         <p>This content is initially collapsed. Click the button to expand or collapse it.</p>
+       </div>
     </main>
 
     <aside class="right-sidebar">
       <h3>Table of contents</h3>
       <ul>
-        <li><a href="#main-dependencies">Main Dependencies</a></li>
-        <li><a href="#optional-dependencies">Optional Dependencies</a></li>
-        <li><a href="#validate-dependencies-using-doctor">Validate Dependencies Using Doctor</a></li>
-        <li><a href="#xcode-ios-version-support">Xcode/iOS Version Support</a></li>
+        <li><a href="#main-dependencies">Install appium android automator2</a></li>
+        <li><a href="#optional-dependencies">Check setup Android SDK</a></li>
+        <li><a href="#validate-dependencies-using-doctor">Check apkanalyzer</a></li>
+        <li><a href="#xcode-ios-version-support">Check emulator</a></li>
+        <li><a href="#optional-dependencies">Check bundletool.jar</a></li>
+        <li><a href="#validate-dependencies-using-doctor">Check ffmpeg</a></li>
+        <li><a href="#xcode-ios-version-support">Check gst-launch-1.0 and/or gst-inspect-1.0</a></li>
       </ul>
     </aside>
   </div>
@@ -124,6 +140,26 @@ appium-doctor --ios
   })
   .catch((error) => console.error('Error loading header:', error));
 
+  </script>
+  <script>
+    // Get references to our button and the collapsible div
+    const toggleBtn = document.getElementById('toggle-btn');
+    const collapsibleContent = document.getElementById('collapsible-content');
+
+    // The div starts off hidden (display: none), as defined in CSS
+
+    toggleBtn.addEventListener('click', () => {
+      // Check if the content is currently hidden
+      if (collapsibleContent.style.display === 'none') {
+        // Show it
+        collapsibleContent.style.display = 'block';
+        toggleBtn.textContent = 'Show Less';
+      } else {
+        // Hide it
+        collapsibleContent.style.display = 'none';
+        toggleBtn.textContent = 'Show More';
+      }
+    });
   </script>
 </body>
 </html>

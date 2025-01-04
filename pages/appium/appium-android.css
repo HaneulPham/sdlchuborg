@@ -470,5 +470,17 @@
     margin-top: 15px;
   }
   */
-  
+  /* By default, the collapsible content is hidden (display: none). */
+  #collapsible-content {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  /* Just for styling the button. */
+  #toggle-btn {
+    padding: 6px 10px;
+    cursor: pointer;
+  }
   
