@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System requirements</title>
+    <link rel="stylesheet" href="../../styles/system-requirements.css">
+    <link rel="stylesheet" href="../../components/styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <p>Navbar Content</p>
+    </nav>
+    <footer id="footer">
+        <p>Footer Content</p>
+    </footer>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <div class="content">
+            <h1>Tools</h1>
+            <p>Some tools</p>
+            <ul>
+                <li>Install Microsoft Remote Desktop <a href="https://microsoft-remote-desktop.macupdate.com/">link here</a></li>
+                <li>Install Appium <a href="http://appium.io/docs/en/latest/quickstart/install/">link here</a></li>
+                <li>Download Java JDK
+                    <p>There are many way to download Java JDK. I prefer to download IntelliJ IDE and then will download Java JDK after start it.</p>
+                    <li>
+                        <img src="../../images/requirements/start-IDE-to-download-JDK.png" alt="see image" />
+                        <a>Click Create button, it looks like this <br> </a>
+                        <img src="../../images/requirements/downloading-JDK.png"/>
+                    </li>
+                    <p>Or You can download this from <a href="https://jdk.java.net">Oracle</a> or <a href="https://adoptium.net/en-GB/temurin/releases/">Adoptium</a>. Make sure you get the JDK and not the JRE.</p>
+                </li>
+            
+                <li>A macOS, Linux, or Windows operating system</li>
+                <li>Node.js version in the SemVer range ^14.17.0 || ^16.13.0 || >=18.0.0
+                    <ul>
+                        <li>LTS is recommended</li>
+                    </ul>
+                </li>
+                <li>npm version >=8 (npm is usually bundled with Node.js, but can be upgraded independently)</li>
+            </ul>
+            <p>By itself, Appium is relatively lightweight and doesn't have significant disk space or RAM requirements. It can even be run in resource-constrained environments like Raspberry Pi, so long as Node.js is available.</p>
+
+            <h2>Driver Requirements</h2>
+            <p>Drivers for automating specific platforms will likely have other requirements. Refer to the documentation of the Appium driver(s) for that platform for additional dependencies. It is almost universally the case that Appium drivers for a given platform will require the developer toolchain and SDKs for that platform to be installed.</p>
+            <p>In order to assist with driver requirements, each (official) driver comes with the Appium Doctor tool, which allows to verify if all requirements have been set up. Learn more about how to use this tool in the <a href="#">Command-Line Usage documentation</a>.</p>
+        </div>
+    </div>
+    <script src="../../scripts/main.js"></script>
+</body>
+</html>
